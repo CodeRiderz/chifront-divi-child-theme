@@ -1,0 +1,111 @@
+// @import './styles/tribe-event-widget';
+@import './styles/animations';
+
+/* Header 
+==================================== */
+#main-header:not(.et-fixed-header) {
+  // when header not fixed mode
+}
+
+/* Main 
+==================================== */
+
+/* Loader */
+#mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+  bottom: 0;
+  background-color: white;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+	height: 100%;
+	z-index: 99999999;
+}
+
+#loader {
+  width: 120px;
+  height: 120px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background-image: url('./image/logo.png');
+	background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  margin: -100px 0 0 -100px;
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+.et-fb #mask {
+  position: static!important;
+}
+
+/* Sidebar
+==================================== */
+#sidebar {
+  // font-size: 14px;
+  // line-height: 21px;
+}
+
+/* Footer
+==================================== */
+#main-footer {
+  // background-color: #1a1a1a;
+}
+#main-footer .footer-widget ul > li > a:hover {
+  text-decoration: underline;
+}
+#footer-bottom {
+  // padding-bottom: 30px;
+}
+
+/* Animations
+==================================== */
+@keyframes logoInfiniteUp {
+  from {
+    transform: none;
+  }
+
+  to {
+    transform: translate3d(0, calc(-50% + 15px), 0);
+  }
+}
+
+@keyframes logoInfiniteLeft {
+  from {
+    transform: translate3d(calc(-10% + 15px), 0, 0);;
+  }
+
+  to {
+    transform: translate3d(calc(-100% + 15px), 0, 0);
+  }
+}
+
+
+/* Media Queries
+==================================== */
+
+/* tablet portrait start */
+@media (min-width: 768px) {
+}
+
+/* tablet portrait only */
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/* tablet landscape start*/
+@media (min-width: 992px) {
+}
+
+/* tablet Landscape only */
+@media (min-width: 992px) and (max-width: 1024px) {
+}
+
+/* small desktop start */
+@media (min-width: 1025px) {
+}
