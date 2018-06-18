@@ -313,7 +313,7 @@ function remove_menus() {
 function child_remove_parent_function() {
     remove_action( 'admin_menu', 'et_add_divi_menu' );
     add_action('admin_menu', 'custom_divi_menu', 99);
-    add_action('admin_menu', 'remove_menus', 99);
+    // add_action('admin_menu', 'remove_menus', 99);
 }
 
 add_action( 'wp_loaded', 'child_remove_parent_function' );
