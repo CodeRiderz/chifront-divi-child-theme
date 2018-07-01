@@ -1,10 +1,15 @@
 // @import './styles/tribe-event-widget';
 @import './styles/animations';
+@import './styles/sjb';
 
 /* Header 
 ==================================== */
 #main-header:not(.et-fixed-header) {
   // when header not fixed mode
+}
+
+.home-hero.et_pb_slider:hover .et-pb-arrow-prev {
+	left: 80px;
 }
 
 /* Main 
@@ -55,13 +60,27 @@
 /* Footer
 ==================================== */
 #main-footer {
-  // background-color: #1a1a1a;
+	margin-top: -63px;
+    height: auto;
+    padding-bottom: 10px;
 }
+
 #main-footer .footer-widget ul > li > a:hover {
   text-decoration: underline;
 }
+
 #footer-bottom {
   // padding-bottom: 30px;
+}
+
+/* Custom Post Types
+==================================== */
+.et_pb_pagebuilder_layout.single-medical_products #page-container .et_pb_row {
+  width: 100%;
+}
+
+.et_pb_pagebuilder_layout.single-medical_products #page-container .et_pb_with_background .et_pb_row {
+  width: 8
 }
 
 /* Animations

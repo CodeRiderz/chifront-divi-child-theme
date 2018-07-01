@@ -1,0 +1,73 @@
+
+/* Job Posting */
+.sjb-container {
+	margin: 100px auto;
+}
+.sjb-page {
+	font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+	background: none;
+}
+.sjb-page .sjb-filters {
+	background: none;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.sjb-page .sjb-filters .form-control {
+	font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	color: #9dafbc;
+	height: auto;
+	padding: 16px;
+	border: 1px solid #bec9d8;
+	background: transparent;
+	box-shadow: none;
+}
+.sjb-page .sjb-filters .btn-search {
+	font-size: 24px;
+	height: auto;
+	padding: 10px 16px;
+	-webkit-border-radius: 32px;
+	-moz-border-radius: 32px;
+	-o-border-radius: 32px;
+}
+.sjb-page .list-data {
+	font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+	padding: 32px;
+	border: 0px;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+}
+.sjb-page .list-data header {
+	margin-bottom: 40px;
+}
+.sjb-page .list-data .job-info h4 {
+	font-weight: normal;
+	line-height: 2em;
+}
+.sjb-page .list-data .job-type, .sjb-page .list-data .job-location, .sjb-page .list-data .job-date {
+	font-weight: normal;
+	margin-top: 5px;
+}
+.sjb-page .list-data .job-description p {
+	font-weight: 300;
+	color: #666;
+	line-height: 2em;
+}
+.sjb-page .list-data .btn-primary {
+	font-size: 14px;
+	height: auto;
+	padding: 10px 16px;
+	-webkit-border-radius: 32px;
+	-moz-border-radius: 32px;
+	-o-border-radius: 32px;
+}
+.sjb-page .sjb-detail .job-features .table tr > td {
+	border: none!important;
+}
+.sjb-page .sjb-detail .job-features .table tr > td:first-child {
+	font-weight: 600;
+}
+/* Job Posting End */

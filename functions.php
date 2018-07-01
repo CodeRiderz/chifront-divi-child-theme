@@ -317,3 +317,11 @@ function child_remove_parent_function() {
 }
 
 add_action( 'wp_loaded', 'child_remove_parent_function' );
+
+// adding divi builder to custom post type
+function my_et_builder_post_types( $post_types ) {
+	$post_types[] = 'medical_products';
+	
+	return $post_types;
+}
+add_filter( 'et_builder_post_types', 'my_et_builder_post_types' );
