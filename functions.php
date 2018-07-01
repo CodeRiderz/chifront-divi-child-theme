@@ -377,3 +377,9 @@ add_filter( 'et_pb_show_all_layouts_built_for_post_type', 'myprefix_et_pb_show_a
 function myprefix_et_pb_show_all_layouts_built_for_post_type() {
     return 'page';
 }
+
+// Prevent featured post cropping 
+function disable_cropping_on_featured_images() {
+	add_image_size( 'extra-image-single-post', 1280, 1000, true );
+}
+add_action('after_setup_theme', 'disable_cropping_on_featured_images', 11);
