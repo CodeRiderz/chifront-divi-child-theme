@@ -151,10 +151,13 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 			<?php endwhile; ?>
 			</div> <!-- #left-area -->
-			
+
+			<?php get_sidebar(); ?>
 		</div> <!-- #content-area -->
 	</div> <!-- .container -->
 	<?php endif; ?>
 </div> <!-- #main-content -->
 
-<?php get_footer(); ?>
+<?php
+
+get_footer();
