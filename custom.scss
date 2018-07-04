@@ -9,7 +9,9 @@
 }
 
 .home-hero.et_pb_slider:hover .et-pb-arrow-prev {
-	left: 80px;
+	@media (min-width: 981px) {
+    left: 80px;
+  }
 }
 
 /* Main 
