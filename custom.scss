@@ -57,11 +57,16 @@
   // line-height: 21px;
 }
 
+#left-area {
+	padding-bottom: 0px!important;
+}
+
 /* Footer
 ==================================== */
 #main-footer {
   height: auto;
   padding-bottom: 10px;
+  margin-top: -67px!important;
 }
 
 #main-footer .footer-widget ul > li > a:hover {
@@ -89,19 +94,11 @@
 }
 
 .single .et_pb_post {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .single-medical_products .et_post_meta_wrapper img {
 	width: auto!important;
-}
-
-#left-area {
-	padding-bottom: 0px;
-}
-
-#main-footer {
-	margin-top: -67px;
 }
 
 /* Medical Products Grid */
@@ -121,7 +118,8 @@
 	border-radius: 25px;
 	box-shadow: 0px 30px 50px -30px rgba(0,0,0,0.1);
 	-webkit-box-shadow: 0px 30px 50px -30px rgba(0,0,0,0.1);
-	-moz-box-shadow: 0px 30px 50px -30px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 30px 50px -30px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
 .medical-products-grid .et_pb_image_container,
 .medical-products-grid .et_pb_post .entry-featured-image-url {
