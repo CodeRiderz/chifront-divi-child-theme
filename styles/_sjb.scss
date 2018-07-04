@@ -48,7 +48,7 @@
 	line-height: 2em;
 }
 .sjb-page .list-data .job-type, .sjb-page .list-data .job-location, .sjb-page .list-data .job-date {
-  color: #666;
+  color: #666!important;
 	font-weight: normal;
 	margin-top: 5px;
 }
@@ -65,6 +65,10 @@
 	-webkit-border-radius: 32px;
 	-moz-border-radius: 32px;
 	-o-border-radius: 32px;
+}
+.sjb-page .sjb-detail .list-data h3, .sjb-page .sjb-detail .list-data ul li::before, .sjb-page .sjb-detail .list-data .job-detail h3, .sjb-page .sjb-archive-page .job-title {
+  color: #666!important;
+  font-weight: 600;
 }
 .sjb-page .btn-primary, .sjb-page .btn-primary:hover, .sjb-page .btn-primary:active:hover, .sjb-page .btn-primary:active:focus, .sjb-page .sjb-detail .jobpost-form .file div, .sjb-page .sjb-detail .jobpost-form .file:hover div {
   background: #401a9b!important;
