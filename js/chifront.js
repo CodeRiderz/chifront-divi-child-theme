@@ -16,8 +16,10 @@
       $($serviceGraph.attr('usemap')).find('area').on('click', function (e) {
         e.preventDefault()
         const $this = $(this)
-        const $target = $($this.attr('href'))
-        $serviceGraphContent.html($target.html())
+        const targetId = $this.attr('href')
+        const $targetContent = $(targetId)
+        const $targetImg = $(targetId + '-img')
+        $serviceGraphContent.html($targetImg + ' ' + $target.html())
       })
     }
   })
