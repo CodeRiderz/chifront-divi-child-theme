@@ -7,6 +7,7 @@ include './modules/utils.php';
  */
 
 function chifront_theme_enqueue_styles() {
+    wp_enqueue_script('imagemap', 'https://unpkg.com/image-map@1.0.8/image-map.min.js');
     wp_enqueue_script('chifrontscript', get_stylesheet_directory_uri() . '/js/chifront.js', array('jquery'), '1.0.0');
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 }
