@@ -10,18 +10,27 @@
 
     const $serviceGraph = $('#service-graph')
     if ($serviceGraph.length > 0) {
-      const $serviceGraphContent = $('#service-graph-content')
+      // initialize image map
       $serviceGraph.imageMap()
 
-      $($serviceGraph.attr('usemap')).find('area').on('click', function (e) {
+      // initialize default showed target
+      const defaultShowingTargetId = '#regulatory-and-compliance'
+      showTargetInCenterServiceBox(defaultShowingTargetId)
+
+      $($serviceGraph.attr('usemap')).find('area').on('hover', function (e) {
         e.preventDefault()
         const $this = $(this)
         const targetId = $this.attr('href')
-        const $targetContent = $(targetId)
-        const $targetImg = $(targetId + '-img')
-        $serviceGraphContent.html($targetImg.html() + ' ' + $targetContent.html())
+        showTargetInCenterServiceBox(targetId)
       })
     }
   })
+
+  function showTargetInCenterServiceBox (targetId) {
+    const $serviceGraphContent = $('#service-graph-content')
+    const $targetContent = $(targetId)
+    const $targetImg = $(targetId + '-img')
+    $serviceGraphContent.html($targetImg.html() + ' ' + $targetContent.html())
+  }
 
 })(jQuery)
