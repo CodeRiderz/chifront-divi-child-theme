@@ -10,11 +10,14 @@
 
     const $serviceGraph = $('#service-graph')
     if ($serviceGraph.length > 0) {
+      const $serviceGraphContent = $('#service-graph-content')
       $serviceGraph.imageMap()
 
-      $($serviceGraph.attr('usemap')).find('area').on('click', function () {
+      $($serviceGraph.attr('usemap')).find('area').on('click', function (e) {
+        e.preventDefault()
         const $this = $(this)
-        console.debug('chosen area', $this.attr('target'))
+        const $target = $($this.attr('href'))
+        $serviceGraphContent.html($target.html())
       })
     }
   })
