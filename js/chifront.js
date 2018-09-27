@@ -19,7 +19,7 @@
         const targetId = $this.attr('href')
         const $targetContent = $(targetId)
         const $targetImg = $(targetId + '-img')
-        $serviceGraphContent.html($targetImg + ' ' + $target.html())
+        $serviceGraphContent.html($targetImg.html() + ' ' + $targetContent.html())
       })
     }
   })
