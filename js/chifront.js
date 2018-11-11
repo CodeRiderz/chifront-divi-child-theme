@@ -44,6 +44,8 @@
             label: "My First Dataset",
             data: labels.map(() => (360 / labels.length)),
             backgroundColor: labels.map((_, index) => (index >= (labels.length / 2) ? '#B32E2D' : '#2B458A')),
+            borderColor: labels.map((_, index) => ('rgba(255, 255, 255, 0)')),
+            hoverBorderColor: labels.map((_, index) => ('rgba(255, 255, 255, 0)')),
             borderWidth: labels.map(() => (1)),
           }
         ]
