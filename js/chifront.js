@@ -55,8 +55,8 @@
         rotation: -1 * Math.PI,
         tooltips: {
           callbacks: {
-            label: function(tooltipItem, data) {
-                return tooltipItem.xLabel;
+            label: function(tooltipItem) {
+                return labels[tooltipItem.index];
             }
           }
         },
