@@ -56,7 +56,8 @@
         tooltips: {
           callbacks: {
             label: function(tooltipItem) {
-                return labels[tooltipItem.index];
+                let groupName = tooltipItem.index >= (labels.length / 2) ? 'Customer' : 'Principal';
+                return ' ' + groupName + ' - ' + labels[tooltipItem.index];
             }
           }
         },
