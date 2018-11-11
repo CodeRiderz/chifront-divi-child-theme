@@ -45,12 +45,17 @@
       },
       options: {
         cutoutPercentage: 50,
+        tooltips: {
+          enabled: false,
+        },
         legend: {
           display: false,
         },
         plugins: {
           labels: {
-            render: 'label',
+            render: function (args) {
+              return args.label.split(/((?:\w+ ){3})/g).filter(Boolean).join('\n');
+            },
             fontSize: 14,
             fontColor: '#fff',
             // arc: true,
