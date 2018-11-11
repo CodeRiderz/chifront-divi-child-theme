@@ -66,7 +66,7 @@
 
     $(serviceChartCtx).click( 
       function(evt){
-          var activePoints = serviceChart.getSegmentsAtEvent(evt);    
+          var activePoints = serviceChart.getElementsAtEvent(evt);    
           console.debug('CHART CLICKED', activePoints)       
           /* do something */
       }
