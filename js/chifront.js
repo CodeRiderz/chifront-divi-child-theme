@@ -28,7 +28,7 @@
     const serviceChartCtx = document.getElementById('ServicesChart');
     const $chartData = $('.chart-data');
     const labels = $chartData.map(function (index, element) {
-      return $(element).find('h3');
+      return $(element).find('h3').text();
     }).toArray()
 
     const serviceChart = new Chart(serviceChartCtx, {
