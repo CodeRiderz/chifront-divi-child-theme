@@ -44,14 +44,14 @@
         ]
       },
       options: {
-        cutoutPercentage: 25,
+        cutoutPercentage: 75,
         legend: {
           display: false,
         },
         plugins: {
           labels: {
             render: 'label',
-            fontSize: 18,
+            fontSize: 14,
             fontColor: '#fff',
             arc: true,
           }
