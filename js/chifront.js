@@ -54,7 +54,13 @@
         cutoutPercentage: 50,
         rotation: -1 * Math.PI,
         tooltips: {
-          enabled: false,
+          callbacks: {
+            label: function(tooltipItem, data) {
+                var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                return label;
+            }
+          }
         },
         legend: {
           display: false,
@@ -77,7 +83,7 @@
           var activePoints = serviceChart.getElementsAtEvent(evt);    
           var index = activePoints[0]._index;
           console.debug('CHART CLICKED', labels[index], descriptions[index]);
-          serviceChart.data.datasets[0].borderWidth = labels.map((_, labelIndex) => (labelIndex === index ? 1 : 20)),
+          serviceChart.data.datasets[0].borderWidth = labels.map((_, labelIndex) => (labelIndex === index ? 1 : 30)),
           serviceChart.options.cutoutPercentage = 75;
           serviceChart.options.plugins.labels.arc = true;
           serviceChart.update();
