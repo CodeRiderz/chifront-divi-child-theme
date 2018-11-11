@@ -8,22 +8,23 @@
 	  // app.el['loader'].delay(0).fadeOut();
     // app.el['mask'].delay(500).fadeOut("slow");
 
-    const $serviceGraph = $('#service-graph')
-    if ($serviceGraph.length > 0) {
-      // initialize image map
-      $serviceGraph.imageMap()
+    // old image way
+    // const $serviceGraph = $('#service-graph')
+    // if ($serviceGraph.length > 0) {
+    //   // initialize image map
+    //   $serviceGraph.imageMap()
 
-      // initialize default showed target
-      const defaultShowingTargetId = '#regulatory-and-compliance'
-      showTargetInCenterServiceBox(defaultShowingTargetId)
+    //   // initialize default showed target
+    //   const defaultShowingTargetId = '#regulatory-and-compliance'
+    //   showTargetInCenterServiceBox(defaultShowingTargetId)
 
-      $($serviceGraph.attr('usemap')).find('area').on('hover', function (e) {
-        e.preventDefault()
-        const $this = $(this)
-        const targetId = $this.attr('href')
-        showTargetInCenterServiceBox(targetId)
-      })
-    }
+    //   $($serviceGraph.attr('usemap')).find('area').on('hover', function (e) {
+    //     e.preventDefault()
+    //     const $this = $(this)
+    //     const targetId = $this.attr('href')
+    //     showTargetInCenterServiceBox(targetId)
+    //   })
+    // }
 
     const serviceChartCtx = document.getElementById('ServicesChart');
     const $chartData = $('.chart-data');
@@ -81,7 +82,7 @@
       }
     });
 
-    $(serviceChartCtx).click( 
+    $(serviceChartCtx).click(
       function(evt){
           var activePoints = serviceChart.getElementsAtEvent(evt);    
           var index = activePoints[0]._index;
@@ -93,10 +94,22 @@
           serviceChart.options.cutoutPercentage = 75;
           serviceChart.options.plugins.labels.arc = true;
           serviceChart.update();
+          $('#service-graph-close').show(200);
           /* do something */
       }
     );
+
+    $('#service-graph-close').click(resetGraph);
   })
+
+  function resetGraph () {
+    serviceChart.data.datasets[0].borderWidth = labels.map(() => (1)),
+    serviceChart.options.cutoutPercentage = 50;
+    serviceChart.options.plugins.labels.arc = false;
+    serviceChart.update();
+    $('#service-graph-content').empty();
+    $('#service-graph-close').hide(200);
+  }
 
   function showTargetInCenterServiceBox (targetId) {
     const $serviceGraphContent = $('#service-graph-content')
