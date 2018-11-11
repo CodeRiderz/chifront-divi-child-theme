@@ -63,8 +63,17 @@
         }
       }
     });
+
+    $(serviceChartCtx).click( 
+      function(evt){
+          var activePoints = serviceChart.getSegmentsAtEvent(evt);    
+          console.debug('CHART CLICKED', activePoints)       
+          /* do something */
+      }
+    );
   })
 
+  
   function showTargetInCenterServiceBox (targetId) {
     const $serviceGraphContent = $('#service-graph-content')
     const $targetContent = $(targetId)
