@@ -27,13 +27,17 @@
 
     const serviceChartCtx = document.getElementById('ServicesChart');
     const $chartData = $('.chart-data');
-    const labels = $chartData.map(function (index, element) {
-      return $(element).find('h3').text();
+    // get ids
+    const chartDataCollection = $chartData.map(function (index, element) {
+      var id = $(this).attr('id');
+      return {
+        id: id,
+        title: $(element).find('h3').text(),
+        description: $(element).find('h3').text(),
+      }
     }).toArray()
 
-    const descriptions = $chartData.map(function (index, element) {
-      return $(element).find('p').text();
-    }).toArray()
+    const labels = chartDataCollection.map((data) => (data.title))
 
     const serviceChart = new Chart(serviceChartCtx, {
       type: 'doughnut',
@@ -81,7 +85,10 @@
       function(evt){
           var activePoints = serviceChart.getElementsAtEvent(evt);    
           var index = activePoints[0]._index;
-          console.debug('CHART CLICKED', labels[index], descriptions[index]);
+          var data = chartDataCollection[index];
+
+          showTargetInCenterServiceBox('#' + data.id);
+
           serviceChart.data.datasets[0].borderWidth = labels.map((_, labelIndex) => (labelIndex === index ? 1 : 30)),
           serviceChart.options.cutoutPercentage = 75;
           serviceChart.options.plugins.labels.arc = true;
@@ -91,8 +98,7 @@
     );
   })
 
-  
-  function showTargetInCenterServiceBox (targetId) {
+  function showTargetInCenterServiceBox (id, targetId) {
     const $serviceGraphContent = $('#service-graph-content')
     const $targetContent = $(targetId)
     const $targetImg = $(targetId + '-img')
