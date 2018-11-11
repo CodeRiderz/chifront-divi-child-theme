@@ -74,7 +74,7 @@
             render: function (args) {
               return args.label.split(/((?:\w+ ){3})/g).filter(Boolean).join('\n');
             },
-            fontSize: 14,
+            fontSize: 13,
             fontColor: '#fff',
             // arc: true,
           }
@@ -85,11 +85,12 @@
     $(serviceChartCtx).click(
       function(evt){
           var activePoints = serviceChart.getElementsAtEvent(evt);    
-          var index = activePoints[0]._index;
+
           if (!activePoints[0]) {
             return false;
           }
 
+          var index = activePoints[0]._index;
           var data = chartDataCollection[index];
 
           showTargetInCenterServiceBox('#' + data.id);
