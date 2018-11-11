@@ -33,7 +33,29 @@
         datasets:[
           {
             label: "My First Dataset",
-            data: [300,50,100],
+            data: [
+              {
+                value : 300,
+                color : "#F38630",
+                label : 'Red',
+                labelColor : 'white',
+                labelFontSize : '16'
+              },
+              {
+                value : 50,
+                color : "#F38630",
+                label : 'Blue',
+                labelColor : 'white',
+                labelFontSize : '16'
+              },
+              {
+                value : 100,
+                color : "#F38630",
+                label : 'Yellow',
+                labelColor : 'white',
+                labelFontSize : '16'
+              },
+            ],
             backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)"]
           }
         ]
