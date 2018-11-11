@@ -49,6 +49,7 @@
       },
       options: {
         cutoutPercentage: 50,
+        rotation: -1 * Math.PI,
         tooltips: {
           enabled: false,
         },
