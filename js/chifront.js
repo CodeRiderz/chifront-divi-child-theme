@@ -109,7 +109,7 @@
   })
 
   function resetChart (chart) {
-    chart.data.datasets[0].borderWidth = labels.map(() => (1)),
+    chart.data.datasets[0].borderWidth = chart.data.labels.map(() => (1)),
     chart.options.cutoutPercentage = 50;
     chart.options.plugins.labels.arc = false;
     chart.update();
