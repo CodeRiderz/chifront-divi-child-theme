@@ -39,7 +39,7 @@
           {
             label: "My First Dataset",
             data: labels.map(() => (360 / labels.length)),
-            backgroundColor: labels.map(() => ('#2B458A')),
+            backgroundColor: labels.map((_, index) => (index >= (labels.length / 2) ? '#B32E2D' : '#2B458A')),
           }
         ]
       },
