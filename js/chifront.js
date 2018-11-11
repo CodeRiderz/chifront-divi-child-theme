@@ -39,12 +39,14 @@
           {
             label: "My First Dataset",
             data: labels.map(() => (360 / labels.length)),
-            borderWidth: labels.map(() => (50)),
             backgroundColor: labels.map(() => ('#2B458A')),
           }
         ]
       },
       options: {
+        legend: {
+          display: false,
+        },
         plugins: {
           labels: {
             render: 'label',
