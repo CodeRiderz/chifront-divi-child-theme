@@ -56,7 +56,7 @@
         ]
       },
       options: {
-        cutoutPercentage: 50,
+        cutoutPercentage: 45,
         rotation: -1 * Math.PI,
         tooltips: {
           callbacks: {
