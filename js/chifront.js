@@ -98,7 +98,7 @@
     );
   })
 
-  function showTargetInCenterServiceBox (id, targetId) {
+  function showTargetInCenterServiceBox (targetId) {
     const $serviceGraphContent = $('#service-graph-content')
     const $targetContent = $(targetId)
     const $targetImg = $(targetId + '-img')
