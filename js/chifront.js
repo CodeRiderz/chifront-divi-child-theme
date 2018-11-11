@@ -44,7 +44,7 @@
         ]
       },
       options: {
-        cutoutPercentage: 75,
+        cutoutPercentage: 50,
         legend: {
           display: false,
         },
