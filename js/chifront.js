@@ -39,10 +39,13 @@
         ]
       },
       options: {
-        labels: {
-          fontSize: 14,
-          fontColor: '#fff',
-          arc: true,
+        plugins: {
+          labels: {
+            render: 'label',
+            fontSize: 14,
+            fontColor: '#fff',
+            arc: true,
+          }
         }
       }
     });
