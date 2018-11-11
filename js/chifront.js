@@ -53,7 +53,7 @@
             render: 'label',
             fontSize: 14,
             fontColor: '#fff',
-            arc: true,
+            // arc: true,
           }
         }
       }
