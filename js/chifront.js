@@ -31,6 +31,10 @@
       return $(element).find('h3').text();
     }).toArray()
 
+    const descriptions = $chartData.map(function (index, element) {
+      return $(element).find('p').text();
+    }).toArray()
+
     const serviceChart = new Chart(serviceChartCtx, {
       type: 'doughnut',
       data: {
@@ -67,7 +71,8 @@
     $(serviceChartCtx).click( 
       function(evt){
           var activePoints = serviceChart.getElementsAtEvent(evt);    
-          console.debug('CHART CLICKED', activePoints)       
+          var index = activePoints[0]._index;
+          console.debug('CHART CLICKED', labels[index], descriptions[index]);
           /* do something */
       }
     );
