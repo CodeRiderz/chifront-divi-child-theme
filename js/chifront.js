@@ -73,6 +73,7 @@
           var activePoints = serviceChart.getElementsAtEvent(evt);    
           var index = activePoints[0]._index;
           console.debug('CHART CLICKED', labels[index], descriptions[index]);
+          serviceChart.options.cutoutPercentage = 75;
           serviceChart.options.plugins.labels.arc = true;
           serviceChart.update();
           /* do something */
