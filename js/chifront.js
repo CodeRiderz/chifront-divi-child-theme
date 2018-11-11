@@ -44,7 +44,7 @@
             label: "My First Dataset",
             data: labels.map(() => (360 / labels.length)),
             backgroundColor: labels.map((_, index) => (index >= (labels.length / 2) ? '#B32E2D' : '#2B458A')),
-            borderWidth: labels.map(() => (5)),
+            borderWidth: labels.map(() => (1)),
           }
         ]
       },
@@ -75,6 +75,7 @@
           var activePoints = serviceChart.getElementsAtEvent(evt);    
           var index = activePoints[0]._index;
           console.debug('CHART CLICKED', labels[index], descriptions[index]);
+          serviceChart.datasets[0].borderWidth = labels.map((_, labelIndex) => (labelIndex === index ? 10 : 1)),
           serviceChart.options.cutoutPercentage = 75;
           serviceChart.options.plugins.labels.arc = true;
           serviceChart.update();
