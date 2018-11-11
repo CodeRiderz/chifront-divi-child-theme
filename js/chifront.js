@@ -86,6 +86,10 @@
       function(evt){
           var activePoints = serviceChart.getElementsAtEvent(evt);    
           var index = activePoints[0]._index;
+          if (!activePoints[0]) {
+            return false;
+          }
+
           var data = chartDataCollection[index];
 
           showTargetInCenterServiceBox('#' + data.id);
@@ -99,14 +103,16 @@
       }
     );
 
-    $('#service-graph-close').click(resetGraph);
+    $('#service-graph-close').click(function () {
+      resetChart(serviceChart);
+    });
   })
 
-  function resetGraph () {
-    serviceChart.data.datasets[0].borderWidth = labels.map(() => (1)),
-    serviceChart.options.cutoutPercentage = 50;
-    serviceChart.options.plugins.labels.arc = false;
-    serviceChart.update();
+  function resetChart (chart) {
+    chart.data.datasets[0].borderWidth = labels.map(() => (1)),
+    chart.options.cutoutPercentage = 50;
+    chart.options.plugins.labels.arc = false;
+    chart.update();
     $('#service-graph-content').empty();
     $('#service-graph-close').hide(200);
   }
