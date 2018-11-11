@@ -26,7 +26,7 @@
     }
 
     const serviceChartCtx = document.getElementById('ServicesChart');
-    const serviceChart = new Chart(ServiceUIFrameContext, {
+    const serviceChart = new Chart(serviceChartCtx, {
       type: 'doughnut',
       data: {
         labels: ['Red', 'Blue', 'Yellow'],
