@@ -72,7 +72,7 @@
         plugins: {
           labels: {
             render: function (args) {
-              return args.label.split(' ').map((word, index) => (word + ((index + 1) % 3 === 0 ? '\n' : ' '))).join('');
+              return newLineCutting(20, args.label);
             },
             fontSize: 13,
             fontColor: '#fff',
@@ -124,5 +124,15 @@
     const $targetImg = $(targetId + '-img')
     $serviceGraphContent.html($targetImg.html() + ' ' + $targetContent.html())
   }
+
+  function newLineCutting (n, text) {
+		  // trim the string to the maximum length
+		  var trimmedString = text.substr(0, n);
+
+		  // re-trim if we are in the middle of a word
+      trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")))
+      // combine with new line and the rest of the text
+      return trimmedString + '\n' + text.substr(trimmedString.length);
+    };
 
 })(jQuery)
