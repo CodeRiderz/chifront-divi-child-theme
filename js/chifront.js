@@ -72,7 +72,7 @@
         plugins: {
           labels: {
             render: function (args) {
-              return args.label.split(/((?:\w+ ){3})/g).filter(Boolean).join('\n');
+              return args.label.split(' ').map((word, index) => (word + ((index + 1) % 3 === 0 ? '\n' : ' '))).join('');
             },
             fontSize: 13,
             fontColor: '#fff',
