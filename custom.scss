@@ -258,3 +258,60 @@
 /* small desktop start */
 @media (min-width: 1025px) {
 }
+
+
+// service graph
+.service-graph-wrapper {
+	position: relative;
+	h3 {
+    font-size: 32px;
+    line-height: 1.2em;
+    margin-bottom: 10px;
+    margin-top: 10px;
+	}
+	.close {
+    position: absolute;
+    top: 23%;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    margin: auto;
+    width: 30px;
+    height: 30px;
+		display: none;
+		cursor: pointer;
+		padding: 0px;
+	}
+	p {
+    font-size: 20px;
+    line-height: 1.6em;
+	}
+}
+
+.service-graph-wrapper > div {
+	display: flex;
+	flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+	width: 50%;
+  height: 40%;
+	padding: 15px 20px;
+	margin: auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+}
+
+.service-graph-wrapper > div .et_pb_promo_description {
+	padding-bottom: 0px;
+}
+
+.service-graph-wrapper > div img {
+	margin-bottom: 10px;
+}
