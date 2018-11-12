@@ -74,7 +74,7 @@
             render: function (args) {
               return newLineCutting(20, args.label);
             },
-            fontSize: 13,
+            fontSize: 15,
             fontColor: '#fff',
             // arc: true,
           }
