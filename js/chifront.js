@@ -27,92 +27,96 @@
     // }
 
     const serviceChartCtx = document.getElementById('ServicesChart');
-    const $chartData = $('.chart-data');
-    // get ids
-    const chartDataCollection = $chartData.map(function (index, element) {
-      var id = $(this).attr('id');
-      return {
-        id: id,
-        title: $(element).find('h3').text(),
-        description: $(element).find('h3').text(),
-      }
-    }).toArray()
+    if (serviceChartCtx) {
+      const $chartData = $('.chart-data');
+      // get ids
+      const chartDataCollection = $chartData.map(function (index, element) {
+        var id = $(this).attr('id');
+        return {
+          id: id,
+          title: $(element).find('h3').text(),
+          description: $(element).find('h3').text(),
+        }
+      }).toArray()
 
-    const labels = chartDataCollection.map((data) => (data.title))
+      const labels = chartDataCollection.map((data) => (data.title))
 
-    const serviceChart = new Chart(serviceChartCtx, {
-      type: 'doughnut',
-      data: {
-        labels: labels,
-        datasets:[
-          {
-            label: "My First Dataset",
-            data: labels.map(() => (360 / labels.length)),
-            backgroundColor: labels.map((_, index) => (index >= (labels.length / 2) ? '#B32E2D' : '#2B458A')),
-            borderColor: labels.map((_, index) => ('rgba(255, 255, 255)')),
-            hoverBorderColor: labels.map((_, index) => ('rgba(255, 255, 255)')),
-            borderWidth: labels.map(() => (1)),
-          }
-        ]
-      },
-      options: {
-        cutoutPercentage: 45,
-        rotation: -1 * Math.PI,
-        tooltips: {
-          callbacks: {
-            label: function(tooltipItem) {
-                let groupName = tooltipItem.index >= (labels.length / 2) ? 'Customer' : 'Principal';
-                return ' ' + groupName + ' - ' + labels[tooltipItem.index];
+      const serviceChart = new Chart(serviceChartCtx, {
+        type: 'doughnut',
+        data: {
+          labels: labels,
+          datasets:[
+            {
+              label: "My First Dataset",
+              data: labels.map(() => (360 / labels.length)),
+              backgroundColor: labels.map((_, index) => (index >= (labels.length / 2) ? '#B32E2D' : '#2B458A')),
+              borderColor: labels.map((_, index) => ('rgba(255, 255, 255)')),
+              hoverBorderColor: labels.map((_, index) => ('rgba(255, 255, 255)')),
+              borderWidth: labels.map(() => (1)),
+            }
+          ]
+        },
+        options: {
+          cutoutPercentage: 40,
+          rotation: -1 * Math.PI,
+          tooltips: {
+            callbacks: {
+              label: function(tooltipItem) {
+                  let groupName = tooltipItem.index >= (labels.length / 2) ? 'Customer' : 'Principal';
+                  return ' ' + groupName + ' - ' + labels[tooltipItem.index];
+              }
+            }
+          },
+          legend: {
+            display: false,
+          },
+          plugins: {
+            labels: {
+              render: function (args) {
+                return newLineCutting(20, args.label);
+              },
+              fontSize: 16,
+              fontColor: '#fff',
+              // arc: true,
             }
           }
-        },
-        legend: {
-          display: false,
-        },
-        plugins: {
-          labels: {
-            render: function (args) {
-              return newLineCutting(20, args.label);
-            },
-            fontSize: 15,
-            fontColor: '#fff',
-            // arc: true,
-          }
         }
-      }
-    });
+      });
 
-    $(serviceChartCtx).click(
-      function(evt){
-          var activePoints = serviceChart.getElementsAtEvent(evt);    
+      $(serviceChartCtx).click(
+        function(evt){
+            var activePoints = serviceChart.getElementsAtEvent(evt);    
 
-          if (!activePoints[0]) {
-            return false;
-          }
+            if (!activePoints[0]) {
+              return false;
+            }
 
-          var index = activePoints[0]._index;
-          var data = chartDataCollection[index];
+            var index = activePoints[0]._index;
+            var data = chartDataCollection[index];
 
-          showTargetInCenterServiceBox('#' + data.id);
+            showTargetInCenterServiceBox('#' + data.id);
 
-          serviceChart.data.datasets[0].borderWidth = labels.map((_, labelIndex) => (labelIndex === index ? 1 : 30)),
-          serviceChart.options.cutoutPercentage = 75;
-          serviceChart.options.plugins.labels.arc = true;
-          serviceChart.update();
-          $('#service-graph-close').show(200);
-          /* do something */
-      }
-    );
+            serviceChart.data.datasets[0].borderWidth = labels.map((_, labelIndex) => (labelIndex === index ? 1 : 30)),
+            serviceChart.options.cutoutPercentage = 75;
+            serviceChart.options.plugins.labels.arc = true;
+            serviceChart.options.plugins.labels.fontSize = 14;
+            serviceChart.update();
+            $('#service-graph-close').show(200);
+            /* do something */
+        }
+      );
 
-    $('#service-graph-close').click(function () {
-      resetChart(serviceChart);
-    });
+      $('#service-graph-close').click(function () {
+        resetChart(serviceChart);
+      });
+    }
   })
 
   function resetChart (chart) {
     chart.data.datasets[0].borderWidth = chart.data.labels.map(() => (1)),
     chart.options.cutoutPercentage = 50;
     chart.options.plugins.labels.arc = false;
+    chart.options.plugins.labels.fontSize = 16;
     chart.update();
     $('#service-graph-content').empty();
     $('#service-graph-close').hide(200);

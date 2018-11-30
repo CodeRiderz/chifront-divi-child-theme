@@ -10,8 +10,8 @@ function chifront_theme_enqueue_styles() {
     wp_enqueue_script('chartjs', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js', array('jquery'), '1.0.0');
     wp_enqueue_script('chartjs-label', get_stylesheet_directory_uri() . '/js/chartjs-plugin-labels.min.js' , array('jquery'), '1.0.0');
     wp_enqueue_script('imagemap', 'https://unpkg.com/image-map@1.0.8/image-map.min.js', array('jquery'), '1.0.0');
-    wp_enqueue_script('chifrontscript', get_stylesheet_directory_uri() . '/js/chifront.js', array('jquery'), '1.0.0');
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+    wp_enqueue_script('chifrontscript', get_stylesheet_directory_uri() . '/js/chifront.js', array('jquery'), '1.0.4');
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css', '', '1.0.1');
 }
 
 add_action( 'wp_enqueue_scripts', 'chifront_theme_enqueue_styles' );
@@ -390,4 +390,36 @@ function yourprefix_remove_featured_post_cropping($sizes) {
 		$sizes['1080x9998'] = 'et-pb-post-main-image-fullwidth';
 	}
 	return $sizes; 
+}
+
+//https://wordpress.stackexchange.com/questions/286464/php-redirect-https-to-http-and-www-to-non-www
+//check if https being used regardless of certificate
+function shapeSpace_check_https() { 
+    if ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443) {
+        return true; 
+    }
+    return false;
+}
+
+
+for ($x=0; $x<1; $x++) {
+    //if https:// && www.
+    if ( shapeSpace_check_https() && substr($_SERVER['HTTP_HOST'], 0, 4) === 'www.'){
+            header('HTTP/1.1 301 Moved Permanently');
+            header('Location: http://' . substr($_SERVER['HTTP_HOST'], 4).$_SERVER['REQUEST_URI']);
+            exit;
+            break;
+    //if only www.
+    } elseif (substr($_SERVER['HTTP_HOST'], 0, 4) === 'www.') {
+            header('HTTP/1.1 301 Moved Permanently');
+            header('Location: http://' . substr($_SERVER['HTTP_HOST'], 4).$_SERVER['REQUEST_URI']);
+            exit;
+            break;
+    //if only https://
+    } elseif ( shapeSpace_check_https() ) {
+            header('HTTP/1.1 301 Moved Permanently');
+            header('Location: http://' . $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+            exit;
+            break;
+    }
 }
